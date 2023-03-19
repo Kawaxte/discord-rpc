@@ -36,9 +36,7 @@ following these steps:
 3. Add the Rich Presence assets to your application by uploading the images you want to use on the
    Rich Presence page. You can also add a large and small image to the Rich Presence.
 
----
-
-<h3 align="center">Using the Library</h3>
+<h3 align="center">Example</h3>
 
 The following code snippet shows how to use the library to set the Rich Presence state and details
 for your application alongside the start timestamp (in seconds):
