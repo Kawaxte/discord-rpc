@@ -38,50 +38,6 @@ following these steps:
 
 ---
 
-<h3 align="center">Adding the Library to Your Project</h3>
-
-You can add the library to your project by adding the following repository and dependency to your
-build file:
-
-<h4 align="center">Gradle (build.gradle)</h4>
-
-```groovy
-repositories {
-  maven { url 'https://jitpack.io' }
-}
-```
-
-```groovy
-dependencies {
-  implementation 'com.github.Kawaxte:discord-rpc:%VERSION%'
-}
-```
-
-<h4 align="center">Maven (pom.xml)</h4>
-
-```xml
-
-<repositories>
-  <repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-  </repository>
-</repositories>
-```
-
-```xml
-
-<dependencies>
-  <dependency>
-    <groupId>com.github.Kawaxte</groupId>
-    <artifactId>discord-rpc</artifactId>
-    <version>%VERSION%</version>
-  </dependency>
-</dependencies>
-```
-
----
-
 <h3 align="center">Using the Library</h3>
 
 The following code snippet shows how to use the library to set the Rich Presence state and details
