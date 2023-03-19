@@ -40,10 +40,10 @@ public final class DiscordRPC {
   }
 
   /**
-   * Initialises the rich presence.
+   * Initialises the Rich Presence.
    *
    * @param applicationId   The application ID of the application to be initialised.
-   * @param handlers        The event handlers to be registered with the rich presence.
+   * @param handlers        The event handlers to be registered with the Rich Presence.
    * @param autoRegister    Whether or not to automatically register the application with Discord.
    * @param optionalSteamId The Steam ID of the game to be initialised. This is optional and can be
    *                        {@code null}.
@@ -51,7 +51,7 @@ public final class DiscordRPC {
    * @see <a href="https://discordapp.com/developers/docs/rich-presence/how-to#initialization">
    * Introducing Rich Presence - Initialization</a> for more information.
    */
-  public static void initialize(final String applicationId,
+  public static void initialise(final String applicationId,
       DiscordEventHandlers handlers,
       final boolean autoRegister,
       final String optionalSteamId) {
@@ -65,7 +65,7 @@ public final class DiscordRPC {
   }
 
   /**
-   * Shuts down the rich presence.
+   * Shuts down the Rich Presence.
    * <p>
    * This method should be called when the application is closed to ensure that the Discord Rich
    * Presence API is shut down properly.
@@ -80,7 +80,7 @@ public final class DiscordRPC {
 
 
   /**
-   * Runs the callbacks for the rich presence.
+   * Runs the callbacks for the Rich Presence.
    * <p>
    * This method should be called regularly to ensure that the callbacks are run.
    * </p>
@@ -94,10 +94,10 @@ public final class DiscordRPC {
 
 
   /**
-   * Updates the rich presence.
+   * Updates the Rich Presence.
    * <p>
    * This method should be called after building a {@link DiscordRichPresence} object to update the
-   * rich presence.
+   * Rich Presence.
    * </p>
    *
    * @param presence The <code>DiscordRichPresence</code> object to be updated.
@@ -112,9 +112,9 @@ public final class DiscordRPC {
   }
 
   /**
-   * Clears the rich presence.
+   * Clears the Rich Presence.
    * <p>
-   * This method should be called whenever the user wants to clear the rich presence (e.g. when the
+   * This method should be called whenever the user wants to clear the Rich Presence (e.g. when the
    * user closes the application).
    * </p>
    */
@@ -148,7 +148,7 @@ public final class DiscordRPC {
   }
 
   /**
-   * Updates the event handlers for the rich presence.
+   * Updates the event handlers for the Rich Presence.
    * <p>
    * This method should be called if the user doesn't want to register all event handlers at
    * initialisation. Keep in mind that this will overwrite any previously registered event
