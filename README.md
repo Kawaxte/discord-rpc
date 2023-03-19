@@ -14,18 +14,22 @@
   </a>
 </p>
 
----
+<p align="center">
+  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
+    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
+  </a>
+</p>
 
 This library contains JNA bindings for interacting with the Discord Rich Presence API in Java.
 It is based on the C++ implementation of the (_now deprecated_)
 [discord-rpc](https://github.com/discord/discord-rpc) library.
 
-<h2 align="center">Getting Started</h2>
-
 ---
 
-In order to use the library, you will need to set up a Discord application and (optionally) add
-Rich Presence assets to it. You can do this by following these steps:
+<h2 align="center">Getting Started</h2>
+
+In order to use the library, you will need to set up a Discord application. You can do this by
+following these steps:
 
 1. Create a new application on
    the [Discord Developer Portal](https://discord.com/developers/applications).
@@ -35,21 +39,58 @@ Rich Presence assets to it. You can do this by following these steps:
 3. Add the Rich Presence assets to your application by uploading the images you want to use on the
    Rich Presence page. You can also add a large and small image to the Rich Presence.
 
-Once you have completed these steps, you can start using the library.
+---
 
-<h3 align="center">Usage</h3>
+<h3 align="center">Adding the Library to Your Project</h3>
 
-To use the library, you can either download the latest release from the
-[releases](https://github.com/Kawaxte/discord-rpc/releases) page or add it as either a Maven or
-Gradle dependency by clicking on the badge below:
-<p align="center">
-  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
-    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
-  </a>
-</p>
+You can add the library to your project by adding the following repository and dependency to your
+build file:
 
-Once you have added the library to your project, you can use the following example code to get
-started:
+<h4 align="center">Gradle (build.gradle)</h4>
+
+```groovy
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+```
+
+```groovy
+dependencies {
+  implementation 'com.github.Kawaxte:discord-rpc:%VERSION%'
+}
+```
+
+---
+
+<h4 align="center">Maven (pom.xml)</h4>
+
+```xml
+
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+```
+
+```xml
+
+<dependencies>
+  <dependency>
+    <groupId>com.github.Kawaxte</groupId>
+    <artifactId>discord-rpc</artifactId>
+    <version>%VERSION%</version>
+  </dependency>
+</dependencies>
+```
+
+---
+
+<h3 align="center">Using the Library</h3>
+
+The following code snippet shows how to use the library to set the Rich Presence state and details
+for your application alongside the start timestamp (in seconds):
 
 ```java
 public class Main {
@@ -91,6 +132,8 @@ public class Main {
 
 ```
 
+---
+
 <h2 align="center">Managing Issues and Contributions</h2>
 <p align="center">
   <a href="https://github.com/Kawaxte/discord-rpc/issues">
@@ -101,10 +144,10 @@ public class Main {
   </a>
 </p>
 
----
-
 We encourage the community to help us improve the library by reporting issues and submitting pull
 requests. To do this, we use GitHub's issue tracker and pull request feature.
+
+---
 
 <h3 align="center">Reporting Issues and Suggestions</h3>
 
@@ -118,6 +161,8 @@ If you encounter a problem or have a working suggestion, please follow these ste
 5. Click on the `Submit new issue` button to open the issue.
 6. Wait for the issue to be reviewed and resolved.
 
+---
+
 <h3 align="center">Submitting Pull Requests</h3>
 
 If you would like to submit a change or addition to
@@ -130,4 +175,6 @@ the library, please follow these steps:
 4. Submit a pull request from your forked repository to the original repository.
    Provide a detailed explanation of your changes and any relevant information.
 5. Wait for the pull request to be reviewed and merged.
+
+---
 
