@@ -6,17 +6,14 @@
   <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
     <img src="https://img.shields.io/github/v/release/Kawaxte/discord-rpc?label=latest">
   </a>
+  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
+    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
+  </a>
   <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
     <img src="https://img.shields.io/github/downloads/Kawaxte/discord-rpc/latest/total.svg">
   </a>
   <a href="https://github.com/Kawaxte/discord-rpc/blob/stable/LICENSE">
     <img src="https://img.shields.io/github/license/Kawaxte/discord-rpc">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
-    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
   </a>
 </p>
 
