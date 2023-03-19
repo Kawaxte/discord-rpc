@@ -21,40 +21,11 @@ It is based on the C++ implementation of the (_now deprecated_)
 [discord-rpc](https://github.com/discord/discord-rpc) library.
 
 <h2 align="center">Getting Started</h2>
-<p align="center">
-  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
-    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
-  </a>
-</p>
 
 ---
 
-<h3 align="center">Installation</h3>
-
-If you are using Gradle, add the following to your `build.gradle` file:
-
-```groovy
-dependencies {
-    implementation 'com.github.kawaxte:discord-rpc:%VERSION%'
-}
-```
-
-If you are using Maven, add the following to your `pom.xml` file:
-
-```xml
-
-<dependency>
-  <groupId>com.github.kawaxte</groupId>
-  <artifactId>discord-rpc</artifactId>
-  <version>%VERSION%</version>
-</dependency>
-```
-
-Make sure to replace `%VERSION%` with the latest version of the library.
-
-<h3 align="center">Usage</h3>
-
-To use this application, follow these steps:
+In order to use the library, you will need to set up a Discord application and (optionally) add
+Rich Presence assets to it. You can do this by following these steps:
 
 1. Create a new application on
    the [Discord Developer Portal](https://discord.com/developers/applications).
@@ -64,8 +35,21 @@ To use this application, follow these steps:
 3. Add the Rich Presence assets to your application by uploading the images you want to use on the
    Rich Presence page. You can also add a large and small image to the Rich Presence.
 
-Once you have completed these steps, you can use the following example code to set up the Rich
-Presence:
+Once you have completed these steps, you can start using the library.
+
+<h3 align="center">Usage</h3>
+
+To use the library, you can either download the latest release from the
+[releases](https://github.com/Kawaxte/discord-rpc/releases) page or add it as either a Maven or
+Gradle dependency by clicking on the badge below:
+<p align="center">
+  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
+    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
+  </a>
+</p>
+
+Once you have added the library to your project, you can use the following example code to get
+started:
 
 ```java
 public class Main {
@@ -101,8 +85,10 @@ public class Main {
           DiscordRPC.clearPresence();
           DiscordRPC.shutdown();
         }));
+
   }
 }
+
 ```
 
 <h2 align="center">Managing Issues and Contributions</h2>
