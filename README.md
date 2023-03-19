@@ -57,8 +57,6 @@ dependencies {
 }
 ```
 
----
-
 <h4 align="center">Maven (pom.xml)</h4>
 
 ```xml
@@ -157,8 +155,6 @@ If you encounter a problem or have a working suggestion, please follow these ste
 4. Include any relevant details, like error messages or steps to reproduce the issue.
 5. Click on the `Submit new issue` button to open the issue.
 6. Wait for the issue to be reviewed and resolved.
-
----
 
 <h3 align="center">Submitting Pull Requests</h3>
 
