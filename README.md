@@ -1,12 +1,31 @@
 <h1 align="center">JDiscordRPC</h1>
+<p align="center">
+  <a href="https://www.azul.com/downloads/?version=java-8-lts&package=jre">
+    <img src="https://img.shields.io/badge/Java-8%2B-blue.svg">
+  </a>
+  <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
+    <img src="https://img.shields.io/github/v/release/Kawaxte/discord-rpc?label=latest">
+  </a>
+  <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
+    <img src="https://img.shields.io/github/downloads/Kawaxte/discord-rpc/latest/total.svg">
+  </a>
+  <a href="https://github.com/Kawaxte/discord-rpc/blob/stable/LICENSE">
+    <img src="https://img.shields.io/github/license/Kawaxte/discord-rpc">
+  </a>
+</p>
 
 ---
 
 This library contains JNA bindings for interacting with the Discord Rich Presence API in Java.
-It is based on the C++ implementation of the (now deprecated)
+It is based on the C++ implementation of the (_now deprecated_)
 [discord-rpc](https://github.com/discord/discord-rpc) library.
 
 <h2 align="center">Getting Started</h2>
+<p align="center">
+  <a href="https://jitpack.io/#Kawaxte/discord-rpc">
+    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
+  </a>
+</p>
 
 ---
 
@@ -23,6 +42,7 @@ dependencies {
 If you are using Maven, add the following to your `pom.xml` file:
 
 ```xml
+
 <dependency>
   <groupId>com.github.kawaxte</groupId>
   <artifactId>discord-rpc</artifactId>
