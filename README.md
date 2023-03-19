@@ -176,5 +176,3 @@ the library, please follow these steps:
    Provide a detailed explanation of your changes and any relevant information.
 5. Wait for the pull request to be reviewed and merged.
 
----
-
