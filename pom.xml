@@ -2,12 +2,23 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <artifactId>discord-rpc-java</artifactId>
+  <artifactId>discord-rpc</artifactId>
   <build>
-    <finalName>discord-rpc-java</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
+        <configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/MANIFEST.MF</exclude>
+              </excludes>
+            </filter>
+          </filters>
+          <shadedArtifactAttached>true</shadedArtifactAttached>
+        </configuration>
         <executions>
           <execution>
             <goals>
@@ -24,8 +35,8 @@
   <dependencies>
     <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
     <dependency>
-      <groupId>net.java.dev.jna</groupId>
       <artifactId>jna</artifactId>
+      <groupId>net.java.dev.jna</groupId>
       <version>5.13.0</version>
     </dependency>
   </dependencies>
@@ -41,5 +52,5 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <version>20230318</version>
+  <version>20230319</version>
 </project>

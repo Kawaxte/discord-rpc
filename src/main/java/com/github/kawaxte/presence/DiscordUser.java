@@ -1,4 +1,4 @@
-package com.github.kawaxte.drpc;
+package com.github.kawaxte.presence;
 
 import com.sun.jna.Structure;
 import com.sun.jna.Structure.FieldOrder;
