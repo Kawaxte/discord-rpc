@@ -12,7 +12,7 @@
   <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
     <img src="https://img.shields.io/github/downloads/Kawaxte/discord-rpc/latest/total.svg">
   </a>
-  <a href="https://github.com/Kawaxte/discord-rpc/blob/stable/LICENSE">
+  <a href="https://github.com/Kawaxte/discord-rpc/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/Kawaxte/discord-rpc">
   </a>
 </p>
