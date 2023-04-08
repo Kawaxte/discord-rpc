@@ -22,8 +22,8 @@ public class DiscordEventHandlers extends Structure {
   public IJoinRequestCallback joinRequest;
 
   /**
-   * The <code>IReadyCallback</code> interface is used to register a callback for the "ready"
-   * event.
+   * The <code>IReadyCallback</code> interface is used to register a callback for when the
+   * connection to Discord has been established.
    *
    * @see Callback
    */
@@ -39,8 +39,8 @@ public class DiscordEventHandlers extends Structure {
   }
 
   /**
-   * The <code>IDisconnectedCallback</code> interface is used to register a callback for the
-   * "disconnected" event.
+   * The <code>IDisconnectedCallback</code> interface is used to register a callback for when the
+   * connection to Discord has been lost.
    *
    * @see Callback
    */
@@ -56,8 +56,8 @@ public class DiscordEventHandlers extends Structure {
   }
 
   /**
-   * The <code>IErroredCallback</code> interface is used to register a callback for the "errored"
-   * event.
+   * The <code>IErroredCallback</code> interface is used to register a callback for when an error
+   * occurs.
    *
    * @see Callback
    */
@@ -74,8 +74,8 @@ public class DiscordEventHandlers extends Structure {
   }
 
   /**
-   * The <code>IJoinGameCallback</code> interface is used to register a callback for the "joinGame"
-   * event.
+   * The <code>IJoinGameCallback</code> interface is used to register a callback for when another
+   * player joins a game.
    *
    * @see Callback
    */
@@ -91,7 +91,8 @@ public class DiscordEventHandlers extends Structure {
   }
 
   /**
-   * The <code>ISpectateGameCallback</code> interface is used to register a callback for the
+   * The <code>ISpectateGameCallback</code> interface is used to register a callback for the when
+   * another player requests to spectate a game.
    *
    * @see Callback
    */
@@ -107,7 +108,8 @@ public class DiscordEventHandlers extends Structure {
   }
 
   /**
-   * The <code>IJoinRequestCallback</code> interface is used to register a callback for the
+   * The <code>IJoinRequestCallback</code> interface is used to register a callback for the when
+   * another player requests to join a game.
    *
    * @see Callback
    */
