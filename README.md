@@ -1,21 +1,21 @@
-<h1 align="center">JDiscordRPC</h1>
-<p align="center">
+<h1 style="text-align: center;">JDiscordRPC</h1>
+<div style="display: flex; justify-content: center;">
   <a href="https://www.azul.com/downloads/?version=java-8-lts&package=jre">
-    <img src="https://img.shields.io/badge/Java-8%2B-blue.svg">
+    <img src="https://img.shields.io/badge/Java-8%2B-blue.svg" alt="Java" style="margin-right: 5px">
   </a>
   <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
-    <img src="https://img.shields.io/github/v/release/Kawaxte/discord-rpc?label=latest">
+    <img src="https://img.shields.io/github/v/release/Kawaxte/discord-rpc?label=latest" alt="latest" style="margin-right: 5px">
   </a>
   <a href="https://jitpack.io/#Kawaxte/discord-rpc">
-    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg">
+    <img src="https://jitpack.io/v/Kawaxte/discord-rpc.svg" alt="JitPack" style="margin-right: 5px">
   </a>
   <a href="https://github.com/Kawaxte/discord-rpc/releases/latest">
-    <img src="https://img.shields.io/github/downloads/Kawaxte/discord-rpc/latest/total.svg">
+    <img src="https://img.shields.io/github/downloads/Kawaxte/discord-rpc/total.svg" alt="downloads" style="margin-right: 5px">
   </a>
   <a href="https://github.com/Kawaxte/discord-rpc/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/Kawaxte/discord-rpc">
+    <img src="https://img.shields.io/github/license/Kawaxte/discord-rpc" alt="license" style="margin-right: 5px">
   </a>
-</p>
+</div>
 
 This library contains JNA bindings for interacting with the Discord Rich Presence API in Java.
 It is based on the C++ implementation of the (_now deprecated_)
@@ -23,7 +23,7 @@ It is based on the C++ implementation of the (_now deprecated_)
 
 ---
 
-<h2 align="center">Getting Started</h2>
+<h2 style="text-align: center;">Getting Started</h2>
 
 In order to use the library, you will need to set up a Discord application. You can do this by
 following these steps:
@@ -36,7 +36,7 @@ following these steps:
 3. Add the Rich Presence assets to your application by uploading the images you want to use on the
    Rich Presence page. You can also add a large and small image to the Rich Presence.
 
-<h3 align="center">Example</h3>
+<h3 style="text-align: center;">Example</h3>
 
 The following code snippet shows how to use the library to set the Rich Presence state and details
 for your application alongside the start timestamp (in seconds):
@@ -45,27 +45,21 @@ for your application alongside the start timestamp (in seconds):
 public class Main {
 
   public static void main(String... args) {
-
-    // Set the Discord Rich Presence event handlers to notify when the client is ready.
     DiscordEventHandlers handlers = new DiscordEventHandlers();
     handlers.ready = request -> {
-
-      // Set the Rich Presence state to indicate the RPC test is running.
       DiscordRichPresence presence = new DiscordRichPresence.Builder()
           .setState("DiscordRPC Test")
           .setDetails("Running the RPC test")
           .setStartTimestamp(System.currentTimeMillis() / 1000L)
           .build();
-
-      // Update the Rich Presence using the built presence.
+      
       DiscordRPC.updatePresence(presence);
     };
+    
+    DiscordRPC.initialise("APPLICATION_ID", handlers, false, null);
 
-    // Initialise the Rich Presence with the application ID and event handlers.
-    DiscordRPC.initialise("APPLICATION_ID", handlers, true, null);
-
-    // Update the Rich Presence periodically using ScheduledExecutorService as it is more
-    // efficient than using a 'while' loop to update the Rich Presence.
+    // Update the Rich Presence every 2 seconds using ScheduledExecutorService as it is more
+    // efficient than sleeping a Thread in a WHILE loop.
     ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
     service.scheduleAtFixedRate(DiscordRPC::runCallbacks, 2, 2, TimeUnit.SECONDS);
 
@@ -80,46 +74,41 @@ public class Main {
 }
 
 ```
-
 ---
 
-<h2 align="center">Managing Issues and Contributions</h2>
-<p align="center">
+<h2 style="text-align: center;">Managing Issues and Contributions</h2>
+<div style="display: flex; justify-content: center;">
   <a href="https://github.com/Kawaxte/discord-rpc/issues">
-    <img src="https://img.shields.io/github/issues/Kawaxte/discord-rpc">
+    <img src="https://img.shields.io/github/issues/Kawaxte/discord-rpc" alt="issues" style="margin-right: 5px">
   </a>
   <a href="https://github.com/Kawaxte/discord-rpc/pulls">
-    <img src="https://img.shields.io/github/issues-pr/Kawaxte/discord-rpc">
+    <img src="https://img.shields.io/github/issues-pr/Kawaxte/discord-rpc" alt="pull requests" style="margin-right: 5px">
   </a>
-</p>
+</div>
 
-We encourage the community to help us improve the library by reporting issues and submitting pull
-requests. To do this, we use GitHub's issue tracker and pull request feature.
+We want to make our library better, and we welcome your help! If you find any issues or have
+suggestions for new features, you can let us know by using GitHub's issue tracker and pull request
+feature.
 
----
+<h3 style="text-align: center;">Reporting Issues and Suggestions</h3>
 
-<h3 align="center">Reporting Issues and Suggestions</h3>
+To report an issue or suggest a new feature:
 
-If you encounter a problem or have a working suggestion, please follow these steps:
+1. Go to the [issue tracker](https://github.com/Kawaxte/discord-rpc/issues) for our launcher
+   on
+   GitHub.
+2. Click the `New issue` button.
+3. Describe the issue or suggestion clearly and provide any relevant details.
+4. Click the `Submit new issue` button to create the issue.
 
-1. Go to the [issue tracker](https://github.com/Kawaxte/discord-rpc/issues) for this
-   repository.
-2. Click on the `New issue` button.
-3. Describe the issue or suggestion in the provided form, making sure to be clear and concise.
-4. Include any relevant details, like error messages or steps to reproduce the issue.
-5. Click on the `Submit new issue` button to open the issue.
-6. Wait for the issue to be reviewed and resolved.
-
-<h3 align="center">Submitting Pull Requests</h3>
+<h3 style="text-align: center;">Submitting Pull Requests</h3>
 
 If you would like to submit a change or addition to
 the library, please follow these steps:
 
-1. First, create a copy of the repository by forking it, which will create a personal copy of the
-   repository that you can modify.
-2. Make the changes you want to make in a new branch of your forked repository.
-3. Thoroughly test your changes.
-4. Submit a pull request from your forked repository to the original repository.
-   Provide a detailed explanation of your changes and any relevant information.
-5. Wait for the pull request to be reviewed and merged.
-
+1. Make a copy of our library repository
+by [forking it](https://docs.github.com/en/get-started/quickstart/fork-a-repo) on GitHub.
+2. Make the changes you want in a new branch of your forked repository.
+3. Test your changes thoroughly.
+4. Submit a pull request from your forked repository to our original repository with a detailed
+   explanation of your changes.
