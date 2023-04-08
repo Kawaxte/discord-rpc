@@ -43,7 +43,7 @@ for your application alongside the start timestamp (in seconds):
 
 ```java
 public class Main {
-
+  
   public static void main(String... args) {
     DiscordEventHandlers handlers = new DiscordEventHandlers();
     handlers.ready = request -> {
