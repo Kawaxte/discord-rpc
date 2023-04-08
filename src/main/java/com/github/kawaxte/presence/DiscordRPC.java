@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.FileAttribute;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -51,10 +52,8 @@ public final class DiscordRPC {
    * @see <a href="https://discordapp.com/developers/docs/rich-presence/how-to#initialization">
    * Introducing Rich Presence - Initialization</a> for more information.
    */
-  public static void initialise(final String applicationId,
-      DiscordEventHandlers handlers,
-      final boolean autoRegister,
-      final String optionalSteamId) {
+  public static void initialise(final String applicationId, DiscordEventHandlers handlers,
+      final boolean autoRegister, final String optionalSteamId) {
     Objects.requireNonNull(applicationId, "applicationId must not be null");
     Objects.requireNonNull(handlers, "handlers must not be null");
 
@@ -207,7 +206,8 @@ public final class DiscordRPC {
     try {
       Files.copy(url.openStream(), p, StandardCopyOption.REPLACE_EXISTING);
     } catch (IOException ioe) {
-      throw new RuntimeException(String.format("%s could not be loaded", p.toFile()), ioe);
+      throw new RuntimeException(MessageFormat.format("\"{0}\" could not be loaded",
+          p), ioe);
     } finally {
       p.toFile().deleteOnExit();
 
@@ -240,30 +240,32 @@ public final class DiscordRPC {
     String userHome = System.getProperty("user.home");
 
     EPlatform platform = EPlatform.getPlatform();
-    Map<EPlatform, String> platformPaths = Collections.unmodifiableMap(
+    Map<EPlatform, String> platformLookup = Collections.unmodifiableMap(
         new EnumMap<EPlatform, String>(EPlatform.class) {{
           put(EPlatform.LINUX, Paths.get(userHome,
               ".discord-rpc").toString());
-          put(EPlatform.MACOSX, Paths.get(userHome,
-              "Library",
-              "Application Support",
-              "discord-rpc").toString());
+          put(EPlatform.MACOS, Paths.get(userHome,
+              "Library", "Application Support", "discord-rpc").toString());
           put(EPlatform.WINDOWS, Paths.get(System.getenv("TEMP"),
               "discord-rpc").toString());
         }}
     );
 
-    String libraryPath = String.join(File.separator, platformPaths.get(platform), libraryName);
+    String libraryPath = String.join(File.separator,
+        platformLookup.get(platform),
+        libraryName);
     URL libraryFileUrl = ClassLoader.getSystemResource(String.format("natives/%s/%s",
-        platform == EPlatform.WINDOWS && System.getProperty("os.arch").equals("amd64")
+        platform == EPlatform.WINDOWS
+            && System.getProperty("os.arch").equals("amd64")
             ? "amd64"
             : "x86",
         libraryName));
 
     try {
-      Files.createDirectories(Paths.get(platformPaths.get(platform)));
+      Files.createDirectories(Paths.get(platformLookup.get(platform)));
     } catch (IOException ioe) {
-      throw new RuntimeException(String.format("%s could not be created", libraryPath), ioe);
+      throw new RuntimeException(MessageFormat.format("Directory \"{0}\" could not be created",
+          platformLookup.get(platform)), ioe);
     } finally {
       loadLibrary(Paths.get(libraryPath), libraryFileUrl);
     }
@@ -277,10 +279,15 @@ public final class DiscordRPC {
    */
   enum EPlatform {
     LINUX("nux"),
-    MACOSX("mac"),
+    MACOS("mac"),
     WINDOWS("win");
 
-    static final String OS_NAME = System.getProperty("os.name").toLowerCase(Locale.ROOT);
+    static final String OS_NAME;
+
+    static {
+      OS_NAME = System.getProperty("os.name").toLowerCase(Locale.ROOT);
+    }
+
     private final String[] osNames;
 
     /**
