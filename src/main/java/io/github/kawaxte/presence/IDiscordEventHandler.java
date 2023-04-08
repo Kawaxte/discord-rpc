@@ -1,4 +1,4 @@
-package com.github.kawaxte.presence;
+package io.github.kawaxte.presence;
 
 import com.sun.jna.Callback;
 
