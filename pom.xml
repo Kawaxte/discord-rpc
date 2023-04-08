@@ -40,7 +40,7 @@
       <version>5.13.0</version>
     </dependency>
   </dependencies>
-  <groupId>com.github.kawaxte</groupId>
+  <groupId>io.github.kawaxte</groupId>
   <modelVersion>4.0.0</modelVersion>
   <name>JDiscordRPC</name>
 
