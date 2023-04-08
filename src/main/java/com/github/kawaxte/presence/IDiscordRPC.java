@@ -16,10 +16,8 @@ public interface IDiscordRPC extends Library {
 
   IDiscordRPC INSTANCE = Native.load("discord-rpc", IDiscordRPC.class);
 
-  void Discord_Initialize(final String applicationId,
-      final DiscordEventHandlers handlers,
-      final int autoRegister,
-      final String optionalSteamId);
+  void Discord_Initialize(final String applicationId, final DiscordEventHandlers handlers,
+      final int autoRegister, final String optionalSteamId);
 
   void Discord_Shutdown();
 
