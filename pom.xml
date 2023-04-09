@@ -15,8 +15,8 @@
               <goal>sign</goal>
             </goals>
             <configuration>
-              <keyname>ed25519</keyname>
-              <passphraseServerId>ossrh</passphraseServerId>
+              <keyname>0x31D9DCD5</keyname>
+              <passphraseServerId>0x31D9DCD5</passphraseServerId>
             </configuration>
           </execution>
         </executions>
