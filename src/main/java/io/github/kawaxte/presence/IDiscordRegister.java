@@ -4,7 +4,7 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 
 /**
- * The <code>IDiscordRegister</code> interface provides methods for registering the application or
+ * The {@code IDiscordRegister} interface provides methods for registering the application or
  * Steam game with Discord using the JNA library to call native functions from the Discord RPC
  * library.
  *
