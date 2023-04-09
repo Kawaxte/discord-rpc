@@ -4,7 +4,7 @@ import com.sun.jna.Structure;
 import com.sun.jna.Structure.FieldOrder;
 
 /**
- * The <code>DiscordRichPresence</code> class represents the Rich Presence object and is used in
+ * The {@code DiscordRichPresence} class represents the Rich Presence object and is used in
  * {@link DiscordRPC#updatePresence(DiscordRichPresence)}.
  * <p>
  * It is also used to create a new instance of {@link DiscordRichPresence} using {@link Builder}.
@@ -37,7 +37,7 @@ public class DiscordRichPresence extends Structure {
   public byte instance;
 
   /**
-   * The <code>Builder</code> class represents the builder of the Rich Presence object and is used
+   * The {@code Builder} class represents the builder of the Rich Presence object and is used
    * to create a new instance of {@link DiscordRichPresence}.
    *
    * @author Kawaxte
@@ -50,7 +50,7 @@ public class DiscordRichPresence extends Structure {
     private final DiscordRichPresence presence;
 
     /**
-     * Constructor of the <code>Builder</code> class that creates a new instance of
+     * Constructor of the {@code Builder} class that creates a new instance of
      * {@link DiscordRichPresence}.
      */
     public Builder() {
@@ -60,8 +60,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the state for the Rich Presence.
      *
-     * @param state The <code>String</code> object representing the state of the Rich Presence.
-     * @return The <code>Builder</code> object.
+     * @param state The {@code String} object representing the state of the Rich Presence.
+     * @return The {@code Builder} object.
      */
     public Builder setState(String state) {
       this.presence.state = state;
@@ -71,8 +71,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the details for the Rich Presence.
      *
-     * @param details The <code>String</code> object representing the details of the Rich Presence.
-     * @return The <code>Builder</code> object.
+     * @param details The {@code String} object representing the details of the Rich Presence.
+     * @return The {@code Builder} object.
      */
     public Builder setDetails(String details) {
       this.presence.details = details;
@@ -82,7 +82,7 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the start timestamp for the Rich Presence which is used to calculate the elapsed time.
      *
-     * @param startTimestamp The <code>long</code> object representing the start timestamp for the
+     * @param startTimestamp The {@code long} object representing the start timestamp for the
      *                       Rich Presence in seconds since epoch.
      */
     public Builder setStartTimestamp(long startTimestamp) {
@@ -93,9 +93,9 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the end timestamp for the Rich Presence which is used to calculate the remaining time.
      *
-     * @param endTimestamp The <code>long</code> object representing the end timestamp for the rich
+     * @param endTimestamp The {@code long} object representing the end timestamp for the rich
      *                     presence in seconds since epoch.
-     * @return The <code>Builder</code> object.
+     * @return The {@code Builder} object.
      */
     public Builder setEndTimestamp(long endTimestamp) {
       this.presence.endTimestamp = endTimestamp;
@@ -105,8 +105,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the large image for the Rich Presence.
      *
-     * @param largeImageKey The <code>String</code> object representing the key of the large image.
-     * @return The <code>Builder</code> object.
+     * @param largeImageKey The {@code String} object representing the key of the large image.
+     * @return The {@code Builder} object.
      */
     public Builder setLargeImageKey(String largeImageKey) {
       this.presence.largeImageKey = largeImageKey;
@@ -116,9 +116,9 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the large image hover text for the Rich Presence.
      *
-     * @param largeImageText The <code>String</code> object representing the text for the large
+     * @param largeImageText The {@code String} object representing the text for the large
      *                       image.
-     * @return The <code>Builder</code> object.
+     * @return The {@code Builder} object.
      */
     public Builder setLargeImageText(String largeImageText) {
       this.presence.largeImageText = largeImageText;
@@ -128,9 +128,9 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the small image for the Rich Presence.
      *
-     * @param smallImageKey The <code>String></code> object representing the key of the small
+     * @param smallImageKey The {@code String} object representing the key of the small
      *                      image.
-     * @return The <code>Builder</code> object.
+     * @return The {@code Builder} object.
      */
     public Builder setSmallImageKey(String smallImageKey) {
       this.presence.smallImageKey = smallImageKey;
@@ -140,9 +140,9 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the small image hover text for the Rich Presence.
      *
-     * @param smallImageText The <code>String</code> object representing the text for the small
+     * @param smallImageText The {@code String} object representing the text for the small
      *                       image.
-     * @return The <code>Builder</code> object.
+     * @return The {@code Builder} object.
      */
     public Builder setSmallImageText(String smallImageText) {
       this.presence.smallImageText = smallImageText;
@@ -152,8 +152,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the party ID for the Rich Presence.
      *
-     * @param partyId The <code>String</code> object representing the party ID.
-     * @return The <code>Builder</code> object.
+     * @param partyId The {@code String} object representing the party ID.
+     * @return The {@code Builder} object.
      */
     public Builder setPartyId(String partyId) {
       this.presence.partyId = partyId;
@@ -163,8 +163,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the party size for the Rich Presence.
      *
-     * @param partySize The <code>int</code> representing the party size.
-     * @return The <code>Builder</code> object.
+     * @param partySize The {@code int} representing the party size.
+     * @return The {@code Builder} object.
      */
     public Builder setPartySize(int partySize) {
       this.presence.partySize = partySize;
@@ -174,8 +174,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the party max for the Rich Presence.
      *
-     * @param partyMax The <code>int</code> representing the maximum party size.
-     * @return The <code>Builder</code> object.
+     * @param partyMax The {@code int} representing the maximum party size.
+     * @return The {@code Builder} object.
      */
     public Builder setPartyMax(int partyMax) {
       this.presence.partyMax = partyMax;
@@ -185,8 +185,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the match secret for the Rich Presence.
      *
-     * @param matchSecret The <code>String</code> object representing the match secret.
-     * @return The <code>Builder</code> object.
+     * @param matchSecret The {@code String} object representing the match secret.
+     * @return The {@code Builder} object.
      */
     @Deprecated
     public Builder setMatchSecret(String matchSecret) {
@@ -197,8 +197,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the join secret for the Rich Presence.
      *
-     * @param joinSecret The <code>String</code> object representing the join secret.
-     * @return The <code>Builder</code> object.
+     * @param joinSecret The {@code String} object representing the join secret.
+     * @return The {@code Builder} object.
      */
     public Builder setJoinSecret(String joinSecret) {
       this.presence.joinSecret = joinSecret;
@@ -208,8 +208,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the spectate secret for the Rich Presencee.
      *
-     * @param spectateSecret The <code>String</code> object representing the spectate secret.
-     * @return The <code>Builder</code> object.
+     * @param spectateSecret The {@code String} object representing the spectate secret.
+     * @return The {@code Builder} object.
      */
     public Builder setSpectateSecret(String spectateSecret) {
       this.presence.spectateSecret = spectateSecret;
@@ -219,8 +219,8 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the instance for the Rich Presence.
      *
-     * @param instance The <code>byte</code> representing the instance.
-     * @return The <code>Builder</code> object.
+     * @param instance The {@code byte} representing the instance.
+     * @return The {@code Builder} object.
      */
     @Deprecated
     public Builder setInstance(byte instance) {
@@ -231,7 +231,7 @@ public class DiscordRichPresence extends Structure {
     /**
      * Builds the {@link DiscordRichPresence} object.
      *
-     * @return The <code>DiscordRichPresence</code> object.
+     * @return The {@code DiscordRichPresence} object.
      */
     public DiscordRichPresence build() {
       return this.presence;
