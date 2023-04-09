@@ -6,6 +6,61 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <configuration>
+              <keyname>0x3AB95903</keyname>
+              <passphraseServerId>Twenty@Three</passphraseServerId>
+            </configuration>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-javadocs</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.5.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+            <id>attach-sources</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.2.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <configuration>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+          <serverId>ossrh</serverId>
+        </configuration>
+        <extensions>true</extensions>
+        <groupId>org.sonatype.plugins</groupId>
+        <version>1.6.13</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <configuration>
           <createDependencyReducedPom>false</createDependencyReducedPom>
@@ -40,9 +95,36 @@
       <version>5.13.0</version>
     </dependency>
   </dependencies>
+  <description>Java Wrapper for the (now deprecated) Discord Rich Presence API.</description>
+  <developers>
+    <developer>
+      <name>Kawaxte</name>
+      <organization>io.github.kawaxte</organization>
+      <organizationUrl>https://github.com/Kawaxte</organizationUrl>
+    </developer>
+  </developers>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
   <groupId>io.github.kawaxte</groupId>
+
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
   <modelVersion>4.0.0</modelVersion>
-  <name>JDiscordRPC</name>
+
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <packaging>jar</packaging>
 
@@ -51,6 +133,14 @@
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <scm>
+    <connection>scm:git:git://github.com/Kawaxte/discord-rpc.git</connection>
+    <developerConnection>scm:git:ssh://github.com:Kawaxte/discord-rpc.git</developerConnection>
+    <url>http://github.com/Kawaxte/discord-rpc/tree/main</url>
+  </scm>
+
+  <url>https://github.com/Kawaxte/discord-rpc</url>
 
   <version>20230409</version>
 </project>
