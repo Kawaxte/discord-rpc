@@ -12,12 +12,13 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>DiscordRPC</code> class provides static methods to initialize, shutdown, update and
+ * The {@code DiscordRPC} class provides static methods to initialize, shutdown, update and
  * clear the presence of the application.
  * <p>
  * It also loads the native library for the current platform using the
@@ -99,8 +100,8 @@ public final class DiscordRPC {
    * Rich Presence.
    * </p>
    *
-   * @param presence The <code>DiscordRichPresence</code> object to be updated.
-   * @throws NullPointerException if {@code presence} is <code>null</code>.
+   * @param presence The {@code DiscordRichPresence} object to be updated.
+   * @throws NullPointerException if {@code presence} is {@code null}.
    * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#updating-presence">
    * Introducing Rich Presence - Updating Presence</a> for more information.
    */
@@ -132,7 +133,7 @@ public final class DiscordRPC {
    *               <li>1 - Reply</li>
    *               <li>2 - Ignore</li>
    *               </ul>
-   * @throws NullPointerException     if {@code userId} is <code>null</code>.
+   * @throws NullPointerException     if {@code userId} is {@code null}.
    * @throws IllegalArgumentException if {@code reply} is not between 0 and 2. Rich Presence -
    *                                  Joining</a> for more information.
    * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#joining"> Introducing
@@ -153,9 +154,9 @@ public final class DiscordRPC {
    * initialisation. Keep in mind that this will overwrite any previously registered event
    * handlers.
    *
-   * @param handlers The <code>DiscordEventHandlers</code> object containing the event handlers to
+   * @param handlers The {@code DiscordEventHandlers} object containing the event handlers to
    *                 be registered. See {@link DiscordEventHandlers} for more information.
-   * @throws NullPointerException if {@code handlers} is <code>null</code>.
+   * @throws NullPointerException if {@code handlers} is {@code null}.
    * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#shutting-down">
    * Introducing Rich Presence - Shutting Down</a> for more information.
    */
@@ -171,7 +172,7 @@ public final class DiscordRPC {
    * @param applicationId The application ID of the application to be registered.
    * @param command       The command to be used to launch the application.
    * @throws NullPointerException if either {@code applicationId} or {@code command} is
-   *                              <code>null</code>.
+   *                              {@code null}.
    */
   public static void register(final String applicationId, final String command) {
     Objects.requireNonNull(applicationId, "applicationId must not be null");
@@ -186,7 +187,7 @@ public final class DiscordRPC {
    * @param applicationId The application ID of the application to be registered.
    * @param steamId       The Steam ID of the game to be registered.
    * @throws NullPointerException if either {@code applicationId} or {@code steamId} is
-   *                              <code>null</code>.
+   *                              {@code null}.
    */
   public static void registerSteamGame(final String applicationId, final String steamId) {
     Objects.requireNonNull(applicationId, "applicationId must not be null");
@@ -198,8 +199,8 @@ public final class DiscordRPC {
   /**
    * Loads the native library and deletes the library after the JVM exits.
    *
-   * @param p   The <code>Path</code> object to be used to load the library.
-   * @param url The <code>URL</code> object to be used to load the library.
+   * @param p   The {@code Path} object to be used to load the library.
+   * @param url The {@code URL} object to be used to load the library.
    * @throws RuntimeException if the library could not be loaded.
    */
   private static void loadLibrary(Path p, URL url) {
@@ -237,7 +238,8 @@ public final class DiscordRPC {
    */
   private static void loadLibraryForPlatform() {
     String libraryName = System.mapLibraryName("discord-rpc");
-    String userHome = System.getProperty("user.home");
+    String userHome = System.getProperty("user.home")
+        .replaceAll("[^a-zA-Z0-9_\\\\/\\-.]", "_");
 
     EPlatform platform = EPlatform.getPlatform();
     Map<EPlatform, String> platformLookup = Collections.unmodifiableMap(
@@ -272,7 +274,7 @@ public final class DiscordRPC {
   }
 
   /**
-   * The <code>EPlatform</code> enum represents the different platforms that are supported by
+   * The {@code EPlatform} enum represents the different platforms that are supported by
    * DiscordRPC.
    *
    * @author Kawaxte
@@ -285,29 +287,31 @@ public final class DiscordRPC {
     static final String OS_NAME;
 
     static {
-      OS_NAME = System.getProperty("os.name").toLowerCase(Locale.ROOT);
+      OS_NAME = System.getProperty("os.name") != null
+          ? System.getProperty("os.name").toLowerCase(Locale.ROOT)
+          : "";
     }
 
-    private final String[] osNames;
+    private final List<String> osNames;
 
     /**
-     * Constructs a new <code>EPlatform</code> with the specified operating system names.
+     * Constructs a new {@code EPlatform} with the specified operating system names.
      *
      * @param osNames The operating system names to be used to identify the platform.
      */
     EPlatform(String... osNames) {
-      this.osNames = osNames;
+      this.osNames = Collections.unmodifiableList(Arrays.asList(osNames));
     }
 
     /**
      * Returns the platform that the current operating system is running on.
      *
-     * @return The <code>EPlatform</code> object representing the platform that the current
-     * operating system is running on.
+     * @return The {@code EPlatform} object representing the platform that the current operating
+     * system is running on.
      */
     public static EPlatform getPlatform() {
       return Arrays.stream(values())
-          .filter(platform -> Arrays.stream(platform.osNames).anyMatch(OS_NAME::contains))
+          .filter(platform -> platform.osNames.stream().anyMatch(OS_NAME::contains))
           .findFirst()
           .orElse(null);
     }
