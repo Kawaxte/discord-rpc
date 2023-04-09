@@ -4,7 +4,7 @@ import com.sun.jna.Structure;
 import com.sun.jna.Structure.FieldOrder;
 
 /**
- * The <code>DiscordUser</code> class represents a Discord user.
+ * The {@code DiscordUser} class represents a Discord user.
  *
  * @author Kawaxte
  * @see Structure
