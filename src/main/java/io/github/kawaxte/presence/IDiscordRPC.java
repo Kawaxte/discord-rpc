@@ -5,7 +5,7 @@ import com.sun.jna.Native;
 
 
 /**
- * The <code>IDiscordRPC</code> interface provides methods for initialising and interacting with the
+ * The {@code IDiscordRPC} interface provides methods for initialising and interacting with the
  * Discord Rich Presence API using the JNA library to call native functions from the Discord RPC
  * library.
  *
