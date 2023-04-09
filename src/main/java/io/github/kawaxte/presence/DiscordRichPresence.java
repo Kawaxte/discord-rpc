@@ -37,8 +37,8 @@ public class DiscordRichPresence extends Structure {
   public byte instance;
 
   /**
-   * The {@code Builder} class represents the builder of the Rich Presence object and is used
-   * to create a new instance of {@link DiscordRichPresence}.
+   * The {@code Builder} class represents the builder of the Rich Presence object and is used to
+   * create a new instance of {@link DiscordRichPresence}.
    *
    * @author Kawaxte
    */
@@ -82,8 +82,9 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the start timestamp for the Rich Presence which is used to calculate the elapsed time.
      *
-     * @param startTimestamp The {@code long} object representing the start timestamp for the
-     *                       Rich Presence in seconds since epoch.
+     * @param startTimestamp The {@code long} object representing the start timestamp for the Rich
+     *                       Presence in seconds since epoch.
+     * @return The {@code Builder} object.
      */
     public Builder setStartTimestamp(long startTimestamp) {
       this.presence.startTimestamp = startTimestamp;
@@ -116,8 +117,7 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the large image hover text for the Rich Presence.
      *
-     * @param largeImageText The {@code String} object representing the text for the large
-     *                       image.
+     * @param largeImageText The {@code String} object representing the text for the large image.
      * @return The {@code Builder} object.
      */
     public Builder setLargeImageText(String largeImageText) {
@@ -128,8 +128,7 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the small image for the Rich Presence.
      *
-     * @param smallImageKey The {@code String} object representing the key of the small
-     *                      image.
+     * @param smallImageKey The {@code String} object representing the key of the small image.
      * @return The {@code Builder} object.
      */
     public Builder setSmallImageKey(String smallImageKey) {
@@ -140,8 +139,7 @@ public class DiscordRichPresence extends Structure {
     /**
      * Sets the small image hover text for the Rich Presence.
      *
-     * @param smallImageText The {@code String} object representing the text for the small
-     *                       image.
+     * @param smallImageText The {@code String} object representing the text for the small image.
      * @return The {@code Builder} object.
      */
     public Builder setSmallImageText(String smallImageText) {
