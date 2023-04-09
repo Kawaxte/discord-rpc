@@ -3,7 +3,7 @@ package io.github.kawaxte.presence;
 import com.sun.jna.Callback;
 
 /**
- * The <code>IDiscordEventHandler</code> interface provides methods for handling event-emitting
+ * The {@code IDiscordEventHandler} interface provides methods for handling event-emitting
  * callbacks from the Discord RPC library.
  *
  * @author Kawaxte
@@ -14,7 +14,7 @@ public interface IDiscordEventHandler extends Callback {
   /**
    * Called when the connection to Discord has been established.
    *
-   * @param request The <code>DiscordUser</code> object containing all required information about
+   * @param request The {@code DiscordUser} object containing all required information about
    *                the user executing the app.
    * @see DiscordUser
    */
@@ -54,7 +54,7 @@ public interface IDiscordEventHandler extends Callback {
   /**
    * Called when the user requests to join a game.
    *
-   * @param request The <code>DiscordUser</code> object containing all required information about
+   * @param request The {@code DiscordUser} object containing all required information about
    *                the user executing the app.
    * @see DiscordUser
    */
