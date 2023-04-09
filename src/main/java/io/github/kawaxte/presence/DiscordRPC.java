@@ -50,8 +50,7 @@ public final class DiscordRPC {
    * @param optionalSteamId The Steam ID of the game to be initialised. This is optional and can be
    *                        {@code null}.
    * @throws NullPointerException if {@code applicationId} or {@code handlers} is {@code null}.
-   * @see <a href="https://discordapp.com/developers/docs/rich-presence/how-to#initialization">
-   * Introducing Rich Presence - Initialization</a> for more information.
+   * @see <a href="https://discordapp.com/developers/docs/rich-presence/how-to#initialization">Introducing Rich Presence - Initialization</a>
    */
   public static void initialise(final String applicationId, DiscordEventHandlers handlers,
       final boolean autoRegister, final String optionalSteamId) {
@@ -71,8 +70,7 @@ public final class DiscordRPC {
    * Presence API is shut down properly.
    * </p>
    *
-   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#shutting-down">
-   * Introducing Rich Presence - Shutting Down</a> for more information.
+   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#shutting-down">Introducing Rich Presence - Shutting Down</a>
    */
   public static void shutdown() {
     IDiscordRPC.INSTANCE.Discord_Shutdown();
@@ -85,8 +83,7 @@ public final class DiscordRPC {
    * This method should be called regularly to ensure that the callbacks are run.
    * </p>
    *
-   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#so-how-does-it-work">
-   * Introducing Rich Presence - So, How Does It Work?</a> for more information.
+   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#so-how-does-it-work">Introducing Rich Presence - So, How Does It Work?</a>
    */
   public static void runCallbacks() {
     IDiscordRPC.INSTANCE.Discord_RunCallbacks();
@@ -102,8 +99,7 @@ public final class DiscordRPC {
    *
    * @param presence The {@code DiscordRichPresence} object to be updated.
    * @throws NullPointerException if {@code presence} is {@code null}.
-   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#updating-presence">
-   * Introducing Rich Presence - Updating Presence</a> for more information.
+   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#updating-presence">Introducing Rich Presence - Updating Presence</a>
    */
   public static void updatePresence(final DiscordRichPresence presence) {
     Objects.requireNonNull(presence, "presence must not be null");
@@ -134,9 +130,8 @@ public final class DiscordRPC {
    *               <li>2 - Ignore</li>
    *               </ul>
    * @throws NullPointerException     if {@code userId} is {@code null}.
-   * @throws IllegalArgumentException if {@code reply} is not between 0 and 2. Rich Presence -
-   *                                  Joining</a> for more information.
-   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#joining"> Introducing
+   * @throws IllegalArgumentException if {@code reply} is not between 0 and 2.
+   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#joining">Introducing Rich Presence - Joining</a>
    */
   public static void respond(final String userId, int reply) {
     Objects.requireNonNull(userId, "userId must not be null");
@@ -157,8 +152,7 @@ public final class DiscordRPC {
    * @param handlers The {@code DiscordEventHandlers} object containing the event handlers to
    *                 be registered. See {@link DiscordEventHandlers} for more information.
    * @throws NullPointerException if {@code handlers} is {@code null}.
-   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#shutting-down">
-   * Introducing Rich Presence - Shutting Down</a> for more information.
+   * @see <a href="https://discord.com/developers/docs/rich-presence/how-to#shutting-down">Introducing Rich Presence - Shutting Down</a>
    */
   public static void updateHandlers(DiscordEventHandlers handlers) {
     Objects.requireNonNull(handlers, "handlers must not be null");
