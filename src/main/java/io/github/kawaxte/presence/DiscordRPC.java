@@ -256,9 +256,10 @@ public final class DiscordRPC {
     String libraryPath = String.join(File.separator,
         platformLookup.get(platform),
         libraryName);
-    URL libraryFileUrl = ClassLoader.getSystemResource(String.format("natives/%s/%s",
+    URL libraryFileUrl = ClassLoader.getSystemResource(String.format("%s/%s",
         platform == EPlatform.WINDOWS
             && System.getProperty("os.arch").equals("amd64")
+            && System.getProperty("sun.arch.data.model").equals("64")
             ? "amd64"
             : "x86",
         libraryName));
